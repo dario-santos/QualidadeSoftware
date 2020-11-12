@@ -1,9 +1,7 @@
 package sqlite;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class AjudanteParaBD
 {
@@ -38,15 +36,20 @@ public class AjudanteParaBD
 
                 // Cria as tabelas
                 stmt.execute(CREATE_TABELA_FATURA);
-                System.out.println("A base de dados" + DB_NOME + ".db foi criada.");
-                System.out.println("A tabela " + TABELA_FATURA + "foi criada.");
+                System.out.println("A base de dados " + DB_NOME + ".db foi criada.");
+                System.out.println("A tabela " + TABELA_FATURA + " foi criada.");
 
             }
+            else
+                {
+                    System.out.println("CONNECTION NULL");
+                }
         }
         catch (SQLException e)
         {
             System.out.println(e.getMessage());
         }
+
     }
 
     public static Connection ConnectToDB()
@@ -76,6 +79,51 @@ public class AjudanteParaBD
         catch (SQLException e)
         {
             System.out.println("AjudanteParaBD.DisconnectFromDB: " + e.getMessage());
+        }
+    }
+
+    public static boolean insertFaturaInFatura(float valor)
+    {
+        String sql = "INSERT INTO "+ TABELA_FATURA + "(" + FATURA_VALOR + ") VALUES(?)";
+
+        try (Connection conn = ConnectToDB())
+        {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setFloat(1, valor);
+            pstmt.executeUpdate();
+
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("AjudanteParaBD.insertFaturaInFatura: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static ArrayList<Fatura> selectFaturas()
+    {
+        String sql = "SELECT * FROM " + TABELA_FATURA
+                + " ORDER BY " + FATURA_ID + " DESC;;";
+
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+             PreparedStatement pstmt = conn.prepareStatement(sql))
+        {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            ArrayList<Fatura> pontuacoes = new ArrayList<>();
+
+            while(rs.next())
+                pontuacoes.add(new Fatura(rs.getInt(FATURA_ID)
+                        , rs.getFloat(FATURA_VALOR)));
+
+            return pontuacoes;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("AjudanteParaBD.selectNPontuacao: " + e.getMessage());
+            return null;
         }
     }
 }

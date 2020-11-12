@@ -13,8 +13,8 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="58.0" layoutY="64.0" mnemonicParsing="false" onAction="#onAddClick" text="Adicionar" />
-            <Button layoutX="59.0" layoutY="120.0" mnemonicParsing="false" onAction="#onHistoricClick" text="Histórico" />
+            <Button fx:id="addButton" layoutX="58.0" layoutY="64.0" mnemonicParsing="false" onAction="#onEnterAddFaturaClick" text="Adicionar" />
+            <Button layoutX="59.0" layoutY="120.0" mnemonicParsing="false" onAction="#onEnterHistoricClick" text="Histórico" />
          </children></AnchorPane>
    </children>
 </GridPane>
