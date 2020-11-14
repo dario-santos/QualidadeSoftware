@@ -8,6 +8,12 @@ public class Maths
     public static final double PI = 3.1415;
     public static final double e  = 2.71828;
 
+    /***
+     * Returns the sum of x and y
+     * @param x
+     * @param y
+     * @return sum of x and y
+     */
     public static double Sum(double x, double y)
     {
         return x + y;
@@ -38,7 +44,6 @@ public class Maths
         return Math.log(v);
     }
 
-
     public static double Log10(double v)
     {
         return Math.log10(v);
@@ -48,7 +53,6 @@ public class Maths
     {
         return (Math.log(v) / Math.log(base));
     }
-
 
     public static double Cos(double teta)
     {
