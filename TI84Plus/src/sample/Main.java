@@ -24,6 +24,8 @@ public class Main extends Application
     
     public static void main(String[] args)
     {
+        System.out.println((Math.log10(8) / Math.log10(0)));
+
         // Cria a base de dados caso não exista
         File f = new File(AjudanteParaBD.DB_PATH);
 

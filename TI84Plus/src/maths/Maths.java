@@ -5,8 +5,8 @@ public class Maths
 {
     private Maths(){};
 
-    public static final double PI = 3.1415;
-    public static final double e  = 2.71828;
+    public static final double PI = Math.PI;
+    public static final double e  = Math.E;
 
     /***
      * Returns the sum of x and y
@@ -84,6 +84,21 @@ public class Maths
         return Math.atan(teta);
     }
 
+    public static double Cosh(double teta)
+    {
+        return Math.cosh(teta);
+    }
+
+    public static double Sinh(double teta)
+    {
+        return Math.sinh(teta);
+    }
+
+    public static double Tanh(double teta)
+    {
+        return Math.tanh(teta);
+    }
+
     public static double Root(double base, double expoent)
     {
         return Math.pow(expoent, 1/base);
@@ -118,5 +133,4 @@ public class Maths
     {
         return Fact(n) / (Fact(r) * Fact(n-r));
     }
-
 }
