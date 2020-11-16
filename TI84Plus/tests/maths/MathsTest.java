@@ -46,15 +46,15 @@ public class MathsTest {
     public void testLog() {
     }
 
-    @Test(groups = { "exponentialt" })
+    @Test(groups = { "exponential" })
     public void testPow() {
     }
 
-    @Test(groups = { "exponentialt" })
+    @Test(groups = { "exponential" })
     public void testRoot() {
     }
 
-    @Test(groups = { "exponentialt" })
+    @Test(groups = { "exponential" })
     public void testSquareRoot() {
     }
 
@@ -94,15 +94,38 @@ public class MathsTest {
     public void testTanh() {
     }
 
-    @Test(groups = { "combinatoric" })
+    @Test(groups = { "combinatorial" })
     public void testFact() {
     }
 
-    @Test(groups = { "combinatoric" })
+    @Test(groups = { "combinatorial" })
     public void testPermutation() {
     }
 
-    @Test(groups = { "combinatoric" })
+    @Test(groups = { "combinatorial" })
     public void testCombination() {
+        /*
+        assertEquals((double)0,  Maths.Sum(0, 0));
+        assertEquals((double)1,  Maths.Sum(0, 1));
+        assertEquals((double)1,  Maths.Sum(1, 0));
+        assertEquals((double)-2, Maths.Sum(-1, -1));
+        assertEquals((double)0,  Maths.Sum(-1, 1));
+        assertEquals((double)0,  Maths.Sum(1, -1));
+        assertEquals((double)2,  Maths.Sum(1, 1));
+        assertEquals((double)2,  Maths.Sum(1, 1));
+        assertEquals((double)2,  Maths.Sum(1, 1));
+        */
+
+        /*
+        n = -1
+        r = -2
+        */
+
+        try {
+            Maths.Combination(-1, -2);
+            fail("Combination should throw exception on r > n.\nTEST CASE :\nn=-1\nr=-2\n");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
     }
 }

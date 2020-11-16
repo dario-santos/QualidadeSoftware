@@ -114,7 +114,7 @@ public class Maths
         return Math.pow(base, expoent);
     }
 
-    public static double Fact(double v)
+    public static long Fact(long v)
     {
         int f = 1;
 
@@ -124,13 +124,18 @@ public class Maths
         return f;
     }
 
-    public static double Permutation(double n, double r)
+    public static long Permutation(long n, long r)
     {
         return Fact(n) / Fact(n-r);
     }
 
-    public static double Combination(double n, double r)
+    public static long Combination(long n, long r) throws MathsExceptions
     {
+        if (n<0 || r<0)
+            throw new MathsExceptions("COMBINATION EXCEPTION:\nParameters have to be positive.\n");
+        if (r > n)
+            throw new MathsExceptions("COMBINATION EXCEPTION:\nSecond parameter cannot be greater than the first parameter.\n");
+
         return Fact(n) / (Fact(r) * Fact(n-r));
     }
 }

@@ -31,5 +31,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="org.testng:testng:7.3.0" level="project" />
   </component>
 </module>
