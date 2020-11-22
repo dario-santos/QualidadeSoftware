@@ -39,18 +39,29 @@ public class Maths
         return x % y;
     }
 
-    public static double Ln(double v)
+    public static double Ln(double v) throws MathsExceptions
     {
+        if (v <= 0)
+            throw new MathsExceptions("NATURAL LOGARITHM EXCEPTION:\nParameter cannot be lesser or equal than 0.\n");
+
         return Math.log(v);
     }
 
-    public static double Log10(double v)
+    public static double Log10(double v) throws MathsExceptions
     {
+        if (v <= 0)
+            throw new MathsExceptions("LOGARITHM BASE 10 EXCEPTION:\nParameter cannot be lesser or equal than 0.\n");
+
         return Math.log10(v);
     }
 
-    public static double Log(double base, double v)
+    public static double Log(double base, double v) throws MathsExceptions
     {
+        if (base <= 1)
+            throw new MathsExceptions("LOGARITHM BASE x EXCEPTION:\nFirst Parameter cannot be lesser than 0.\n");
+        if (v <= 0)
+            throw new MathsExceptions("LOGARITHM BASE x EXCEPTION:\nSecond Parameter cannot be lesser or equal than 0.\n");
+
         return (Math.log(v) / Math.log(base));
     }
 
