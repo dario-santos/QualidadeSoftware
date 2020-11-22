@@ -120,8 +120,11 @@ public class Maths
         return Math.sqrt(expoent);
     }
 
-    public static double Pow(double base, double expoent)
+    public static double Pow(double base, double expoent) throws MathsExceptions
     {
+        if (base == 0 && expoent == 0)
+            throw new MathsExceptions("EXPONENTIAL EXCEPTION:\nFirst parameter and second paramter cannot be 0 simultaneously.\n");
+
         return Math.pow(base, expoent);
     }
 

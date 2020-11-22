@@ -177,7 +177,44 @@ public class MathsTest {
     }
 
     @Test(groups = { "exponential" })
-    public void testPow() {
+    public void testPow()
+    {
+        try {
+            Maths.Pow(0, 0);
+            fail("Exponential should throw exception when base = expoent = 0.\nTEST CASE :\nbase=0\nexpoent=0");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+        try {
+            assertEquals((double)0,  Maths.Pow(0, 1));
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(false);
+        }
+        try {
+            assertEquals((double)1,  Maths.Pow(1, 0));
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(false);
+        }
+        try {
+            assertEquals((double)-1,  Maths.Pow(-1, -1));
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(false);
+        }
+        try {
+            assertEquals((double)-1,  Maths.Pow(-1, 1));
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(false);
+        }
+        try {
+            assertEquals((double)1,  Maths.Pow(1, -1));
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(false);
+        }
+        try {
+            assertEquals((double)1,  Maths.Pow(1, 1));
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(false);
+        }
     }
 
     @Test(groups = { "exponential" })
