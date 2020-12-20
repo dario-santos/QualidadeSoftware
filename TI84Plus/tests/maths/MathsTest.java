@@ -210,29 +210,80 @@ public class MathsTest {
     @Test(groups = { "exponential" })
     public void testRoot()
     {
-        /*
-            TESTS THAT SHOULD SUCCEED
+        try {
+            Maths.Root(0, 0);
+            fail();
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
 
-            assertEquals(Maths.Root(-1, -1), -1.0);
-            assertEquals(Maths.Root(-1, 1), 1.0);
-            assertEquals(Maths.Root(1, 0), 0.0);
-            assertEquals(Maths.Root(1, -1), -1.0);
-            assertEquals(Maths.Root(1, 1), 1.0);
-         */
-
-
-        /*
-            TESTS THAT SHOULD SUCCEED BY FAILING
-
-            assertEquals(Maths.Root(0, 0), 0.0);
+        try{
             assertEquals(Maths.Root(0, 1), 0.0);
-         */
+        }catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
 
+        try{
+            Maths.Root(1, 0);
+            fail();
+        }catch (MathsExceptions mathsExceptions)
+        {
+            assertTrue(true);
+        }
+
+        try {
+            assertEquals(Maths.Root(-1, -1), -1.0);
+        } catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Root(-1, 1), -1.0);
+        } catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Root(1, -1), 1.0);
+        } catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Root(1, 1), 1.0);
+        } catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
     }
 
     @Test(groups = { "exponential" })
     public void testSquareRoot()
     {
+        try{
+            assertEquals(Maths.SquareRoot(0), 0.0);
+        }catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
+
+        try{
+            Maths.SquareRoot(-1);
+            fail();
+        }catch (MathsExceptions mathsExceptions)
+        {
+            assertTrue(true);
+        }
+        try{
+            assertEquals(Maths.SquareRoot(4), 2.0);
+        }catch (MathsExceptions mathsExceptions)
+        {
+            fail();
+        }
 
     }
 
@@ -407,23 +458,152 @@ public class MathsTest {
     @Test(groups = { "combinatorial" })
     public void testFact()
     {
+        try {
+            Maths.Fact(-1);
+            fail("Factorial should throw exception when v < 0 .\nTEST CASE :\nv=-1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
 
+        try {
+            assertEquals(Maths.Fact(0), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Fact(1), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Fact(2), 2.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
     }
 
     @Test(groups = { "combinatorial" })
     public void testPermutation()
     {
+        try {
+            Maths.Permutation(-1, -2);
+            fail("Permutation should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=-2");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
 
+        try {
+            Maths.Permutation(-1, -1);
+            fail("Permutation should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=-1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+
+        try {
+            Maths.Permutation(-1, 0);
+            fail("Permutation should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=0");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+
+        try {
+            Maths.Permutation(0, -1);
+            fail("Permutation should throw exception when r < 0 .\nTEST CASE :\nn=0, r=-1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+
+        try {
+            assertEquals(Maths.Permutation(0, 0), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Permutation(0, 1), 0.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Permutation(1, 0), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Permutation(1, 1), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Permutation(1, 2), 0.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
     }
 
     @Test(groups = { "combinatorial" })
     public void testCombination() {
-        try
-        {
+        try {
             Maths.Combination(-1, -2);
-            fail("Combination should throw exception on r > n.\nTEST CASE :\nn=-1\nr=-2\n");
+            fail("Combination should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=-2");
         } catch (MathsExceptions mathsExceptions) {
             assertTrue(true);
+        }
+
+        try {
+            Maths.Combination(-1, -1);
+            fail("Combination should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=-1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+
+        try {
+            Maths.Combination(-1, 0);
+            fail("Combination should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=0");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+
+        try {
+            Maths.Combination(0, -1);
+            fail("Combination should throw exception when r < 0 .\nTEST CASE :\nn=0, r=-1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+
+        try {
+            assertEquals(Maths.Combination(0, 0), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Combination(0, 1), 0.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Combination(1, 0), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Combination(1, 1), 1.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+
+        try {
+            assertEquals(Maths.Combination(1, 2), 0.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
         }
     }
 }

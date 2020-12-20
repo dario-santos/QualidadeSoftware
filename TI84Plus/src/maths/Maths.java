@@ -121,9 +121,8 @@ public class Maths
 
     public static double Root(double base, double expoent) throws MathsExceptions
     {
-        if ((expoent == 0.0) || (base == 0.0 && expoent <= 0.0))
+        if (expoent == 0.0)
             throw new MathsExceptions("ROOT EXCEPTION :\nOutside of domain exception.\n");
-
         if (base < 0.0 && (Math.abs(expoent) % 2) == 0.0)
             throw new MathsExceptions("ROOT EXCEPTION :\nNon real answer.\n");
 
@@ -132,9 +131,7 @@ public class Maths
 
     public static double SquareRoot(double v) throws MathsExceptions
     {
-        if (v == 0.0)
-            throw new MathsExceptions("ROOT EXCEPTION :\nOutside of domain exception.\n");
-        if (v < 0.0)
+         if (v < 0.0)
             throw new MathsExceptions("ROOT EXCEPTION :\nNon real answer.\n");
 
         return Math.sqrt(v);
@@ -148,8 +145,11 @@ public class Maths
         return Math.pow(base, expoent);
     }
 
-    public static long Fact(long v)
+    public static long Fact(long v) throws MathsExceptions
     {
+        if(v < 0.0)
+            throw new MathsExceptions("FACTORIAL EXCEPTION:\nv can't be negative.\n");
+
         int f = 1;
 
         for(int i = 1 ; i <= v; i++)
@@ -158,8 +158,13 @@ public class Maths
         return f;
     }
 
-    public static long Permutation(long n, long r)
+    public static long Permutation(long n, long r) throws MathsExceptions
     {
+        if(n < 0.0 || r < 0.0)
+            throw new MathsExceptions("PERMUTATION EXCEPTION:\nParameter have to be positive.\n");
+        if(r > n)
+            return 0;
+
         return Fact(n) / Fact(n-r);
     }
 
@@ -168,7 +173,7 @@ public class Maths
         if (n<0 || r<0)
             throw new MathsExceptions("COMBINATION EXCEPTION:\nParameters have to be positive.\n");
         if (r > n)
-            throw new MathsExceptions("COMBINATION EXCEPTION:\nSecond parameter cannot be greater than the first parameter.\n");
+            return 0;
 
         return Fact(n) / (Fact(r) * Fact(n-r));
     }
