@@ -9,112 +9,102 @@ public class MathsTest {
     @Test(groups = { "basic-operation" })
     public void testSum()
     {
-        assertEquals((double)0,  Maths.Sum(0, 0));
-        assertEquals((double)1,  Maths.Sum(0, 1));
-        assertEquals((double)1,  Maths.Sum(1, 0));
-        assertEquals((double)-2, Maths.Sum(-1, -1));
-        assertEquals((double)0,  Maths.Sum(-1, 1));
-        assertEquals((double)0,  Maths.Sum(1, -1));
-        assertEquals((double)2,  Maths.Sum(1, 1));
+        assertEquals(Maths.Sum(0, 0), 0.0);
+        assertEquals(Maths.Sum(0, 1), 1.0);
+        assertEquals(Maths.Sum(1, 0), 1.0);
+        assertEquals(Maths.Sum(-1, -1), -2.0);
+        assertEquals(Maths.Sum(-1, 1), 0.0);
+        assertEquals(Maths.Sum(1, -1), 0.0);
+        assertEquals(Maths.Sum(1, 1), 2.0);
     }
 
     @Test(groups = { "basic-operation" })
     public void testSub()
     {
-        assertEquals((double)0,  Maths.Sub(0, 0));
-        assertEquals((double)-1, Maths.Sub(0, 1));
-        assertEquals((double)1,  Maths.Sub(1, 0));
-        assertEquals((double)0,  Maths.Sub(-1, -1));
-        assertEquals((double)-2, Maths.Sub(-1, 1));
-        assertEquals((double)2,  Maths.Sub(1, -1));
-        assertEquals((double)0,  Maths.Sub(1, 1));
+        assertEquals(Maths.Sub(0, 0), 0.0);
+        assertEquals(Maths.Sub(0, 1), -1.0);
+        assertEquals(Maths.Sub(1, 0), 1.0);
+        assertEquals(Maths.Sub(-1, -1), 0.0);
+        assertEquals(Maths.Sub(-1, 1), -2.0);
+        assertEquals(Maths.Sub(1, -1), 2.0);
+        assertEquals(Maths.Sub(1, 1), 0.0);
     }
 
     @Test(groups = { "basic-operation" })
     public void testMul()
     {
-        assertEquals((double)0,  Maths.Mul(0, 0));
-        assertEquals((double)0,  Maths.Mul(0, 1));
-        assertEquals((double)0,  Maths.Mul(1, 0));
-        assertEquals((double)1,  Maths.Mul(-1, -1));
-        assertEquals((double)-1, Maths.Mul(-1, 1));
-        assertEquals((double)-1, Maths.Mul(1, -1));
-        assertEquals((double)1,  Maths.Mul(1, 1));
+        assertEquals(Maths.Mul(0, 0), 0.0);
+        assertEquals(Maths.Mul(0, 1), 0.0);
+        assertEquals(Maths.Mul(1, 0), 0.0);
+        assertEquals(Maths.Mul(-1, -1), 1.0);
+        assertEquals(Maths.Mul(-1, 1), -1.0);
+        assertEquals(Maths.Mul(1, -1), -1.0);
+        assertEquals(Maths.Mul(1, 1), 1.0);
     }
 
     @Test(groups = { "basic-operation" })
     public void testDiv()
     {
-        assertEquals((double)0,  Maths.Div(0, -1));
-        assertEquals((double)0,  Maths.Div(0, 1));
-        assertEquals((double)1,  Maths.Div(-1, -1));
-        assertEquals((double)-1, Maths.Div(-1, 1));
-        assertEquals((double)-1, Maths.Div(1, -1));
-        assertEquals((double)1,  Maths.Div(1, 1));
+        assertEquals(Maths.Div(0, -1), 0.0);
+        assertEquals(Maths.Div(0, 1), 0.0);
+        assertEquals(Maths.Div(-1, -1), 1.0);
+        assertEquals(Maths.Div(-1, 1), -1.0);
+        assertEquals(Maths.Div(1, -1), -1.0);
+        assertEquals(Maths.Div(1, 1), 1.0);
     }
 
     @Test(groups = { "basic-operation" })
     public void testMod()
     {
-        assertEquals((double)0,  Maths.Mod(0, -1));
-        assertEquals((double)0,  Maths.Mod(0, 1));
-        assertEquals((double)0,  Maths.Mod(-1, -1));
-        assertEquals((double)0,  Maths.Mod(-1, 1));
-        assertEquals((double)0,  Maths.Mod(1, -1));
-        assertEquals((double)0,  Maths.Mod(1, 1));
+        assertEquals(Maths.Mod(0, -1), 0.0);
+        assertEquals(Maths.Mod(0, 1), 0.0);
+        assertEquals(Maths.Mod(-1, -1), 0.0);
+        assertEquals(Maths.Mod(-1, 1), 0.0);
+        assertEquals(Maths.Mod(1, -1), 0.0);
+        assertEquals(Maths.Mod(1, 1), 0.0);
     }
 
     @Test(groups = { "logarithm" })
     public void testLn()
     {
-        try
-        {
+        try {
             Maths.Ln(-1);
             fail("Natural Logarithm should throw exception when v <= 0 .\nTEST CASE :\nv=-1");
         } catch (MathsExceptions mathsExceptions) {
             assertTrue(true);
         }
-
-        try
-        {
+        try {
             Maths.Ln(0);
             fail("Natural Logarithm should throw exception when v <= 0 .\nTEST CASE :\nv=0");
         } catch (MathsExceptions mathsExceptions) {
             assertTrue(true);
         }
-
-        try
-        {
-            assertEquals((double)0,  Maths.Ln(1));
+        try {
+            assertEquals(Maths.Ln(1), 0.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
     }
 
     @Test(groups = { "logarithm" })
     public void testLog10()
     {
-        try
-        {
+        try {
             Maths.Log10(-1);
             fail("Logarithm with Base 10 should throw exception when v <= 0 .\nTEST CASE :\nv=-1");
         } catch (MathsExceptions mathsExceptions) {
             assertTrue(true);
         }
-
-        try
-        {
+        try {
             Maths.Log10(0);
             fail("Logarithm with Base 10 should throw exception when v <= 0 .\nTEST CASE :\nv=0");
         } catch (MathsExceptions mathsExceptions) {
             assertTrue(true);
         }
-
-        try
-        {
-            assertEquals((double)0,  Maths.Log10(1));
+        try {
+            assertEquals(Maths.Log10(1), 0.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
     }
 
@@ -170,9 +160,9 @@ public class MathsTest {
             assertTrue(true);
         }
         try {
-            assertEquals((double)0,Maths.Log(2, 1));
+            assertEquals(Maths.Log(2, 1), 0.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
     }
 
@@ -186,87 +176,244 @@ public class MathsTest {
             assertTrue(true);
         }
         try {
-            assertEquals((double)0,  Maths.Pow(0, 1));
+            assertEquals(Maths.Pow(0, 1), 0.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
         try {
-            assertEquals((double)1,  Maths.Pow(1, 0));
+            assertEquals(Maths.Pow(1, 0), 1.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
         try {
-            assertEquals((double)-1,  Maths.Pow(-1, -1));
+            assertEquals(Maths.Pow(-1, -1), -1.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
         try {
-            assertEquals((double)-1,  Maths.Pow(-1, 1));
+            assertEquals(Maths.Pow(-1, 1), -1.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
         try {
-            assertEquals((double)1,  Maths.Pow(1, -1));
+            assertEquals(Maths.Pow(1, -1), 1.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
         try {
-            assertEquals((double)1,  Maths.Pow(1, 1));
+            assertEquals(Maths.Pow(1, 1), 1.0);
         } catch (MathsExceptions mathsExceptions) {
-            assertTrue(false);
+            fail();
         }
     }
 
     @Test(groups = { "exponential" })
-    public void testRoot() {
+    public void testRoot()
+    {
+        /*
+            TESTS THAT SHOULD SUCCEED
+
+            assertEquals(Maths.Root(-1, -1), -1.0);
+            assertEquals(Maths.Root(-1, 1), 1.0);
+            assertEquals(Maths.Root(1, 0), 0.0);
+            assertEquals(Maths.Root(1, -1), -1.0);
+            assertEquals(Maths.Root(1, 1), 1.0);
+         */
+
+
+        /*
+            TESTS THAT SHOULD SUCCEED BY FAILING
+
+            assertEquals(Maths.Root(0, 0), 0.0);
+            assertEquals(Maths.Root(0, 1), 0.0);
+         */
+
     }
 
     @Test(groups = { "exponential" })
-    public void testSquareRoot() {
+    public void testSquareRoot()
+    {
+
     }
 
     @Test(groups = { "trigonometric" })
-    public void testCos() {
+    public void testCos()
+    {
+        assertEquals(Maths.Cos(0), 1.0);
+        assertEquals(Maths.Cos(Maths.PI/2), Math.cos(Maths.PI/2));
+        assertEquals(Maths.Cos(Maths.PI), -1.0);
     }
 
     @Test(groups = { "trigonometric" })
-    public void testSin() {
+    public void testSin()
+    {
+        assertEquals(Maths.Sin(0), 0.0);
+        assertEquals(Maths.Sin(Maths.PI), Math.sin(Maths.PI));
+        assertEquals(Maths.Sin(Maths.PI/2), 1.0);
+        assertEquals(Maths.Sin(-Maths.PI/2), -1.0);
     }
 
     @Test(groups = { "trigonometric" })
-    public void testTan() {
+    public void testTan()
+    {
+        /*
+            TEST CASES THAT ARE SUPPOSED TO SUCCEED
+         */
+        try {
+            assertEquals(Maths.Tan((-Maths.PI/2)-1), Math.tan((-Maths.PI/2)-1));
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.Tan((-Maths.PI/2)+1), Math.tan((-Maths.PI/2)+1));
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.Tan((Maths.PI/2)-1), Math.tan((Maths.PI/2)-1));
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.Tan((Maths.PI/2)+1), Math.tan((Maths.PI/2)+1));
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        /*
+            TEST CASES THAT ARE SUPPOSED TO SUCCEED BY FAILING
+         */
+        try {
+            Maths.Tan(-Maths.PI/2);
+            fail("Tangent of π/2 SHOULD throw exception. TEST CASE : -π/2");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+        try {
+            Maths.Tan(Maths.PI/2);
+            fail("Tangent of -π/2 SHOULD throw exception. TEST CASE : π/2");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
     }
 
     @Test(groups = { "trigonometric" })
-    public void testArcCos() {
+    public void testArcCos()
+    {
+        /*
+            TEST CASES THAT ARE SUPPOSED TO SUCCEED
+         */
+        try {
+            assertEquals(Maths.ArcCos(-1), Maths.PI);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.ArcCos(0), Maths.PI/2);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.ArcCos(1), 0.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        /*
+            TEST CASES THAT ARE SUPPOSED TO SUCCEED BY FAILING
+         */
+        try {
+            Maths.ArcCos(-1.1);
+            fail("ArcCos of -1.1 SHOULD throw exception. TEST CASE : -1.1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+        try {
+            Maths.ArcCos(1.1);
+            fail("ArcCos of 1.1 SHOULD throw exception. TEST CASE : 1.1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
     }
 
     @Test(groups = { "trigonometric" })
-    public void testArcSin() {
+    public void testArcSin()
+    {
+        /*
+            TEST CASES THAT ARE SUPPOSED TO SUCCEED
+         */
+        try {
+            assertEquals(Maths.ArcSin(-1), -Maths.PI/2);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.ArcSin(0), 0.0);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        try {
+            assertEquals(Maths.ArcSin(1), Maths.PI/2);
+        } catch (MathsExceptions mathsExceptions) {
+            fail();
+        }
+        /*
+            TEST CASES THAT ARE SUPPOSED TO SUCCEED BY FAILING
+         */
+        try {
+            Maths.ArcSin(-1.1);
+            fail("ArcSin of -1.1 SHOULD throw exception. TEST CASE : -1.1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
+        try {
+            Maths.ArcSin(1.1);
+            fail("ArcSin of 1.1 SHOULD throw exception. TEST CASE : 1.1");
+        } catch (MathsExceptions mathsExceptions) {
+            assertTrue(true);
+        }
     }
 
     @Test(groups = { "trigonometric" })
-    public void testArcTan() {
+    public void testArcTan()
+    {
+        assertEquals(Maths.ArcTan(-1), -Maths.PI/4);
+        assertEquals(Maths.ArcTan(0), 0.0);
+        assertEquals(Maths.ArcTan(1), Maths.PI/4);
     }
 
     @Test(groups = { "trigonometric" })
-    public void testCosh() {
+    public void testCosh()
+    {
+        assertEquals(Maths.Cosh(-1), Math.cosh(-1));
+        assertEquals(Maths.Cosh(0), 1.0);
+        assertEquals(Maths.Cosh(1), Math.cosh(1));
     }
 
     @Test(groups = { "trigonometric" })
-    public void testSinh() {
+    public void testSinh()
+    {
+        assertEquals(Maths.Sinh(-1), Math.sinh(-1));
+        assertEquals(Maths.Sinh(0), Math.sinh(0));
+        assertEquals(Maths.Sinh(1), Math.sinh(1));
     }
 
     @Test(groups = { "trigonometric" })
-    public void testTanh() {
+    public void testTanh()
+    {
+        assertEquals(Maths.Tanh(-1), Math.tanh(-1));
+        assertEquals(Maths.Tanh(0), Math.tanh(0));
+        assertEquals(Maths.Tanh(1), Math.tanh(1));
     }
 
     @Test(groups = { "combinatorial" })
-    public void testFact() {
+    public void testFact()
+    {
+
     }
 
     @Test(groups = { "combinatorial" })
-    public void testPermutation() {
+    public void testPermutation()
+    {
+
     }
 
     @Test(groups = { "combinatorial" })
