@@ -2,9 +2,15 @@ package maths;
 
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 import static org.testng.Assert.*;
+import static org.testng.Reporter.log;
 
 public class MathsTest {
+
+
+    private static Random r = new Random();
 
     @Test(groups = { "basic-operation" })
     public void testSum()
@@ -16,6 +22,12 @@ public class MathsTest {
         assertEquals(Maths.Sum(-1, 1), 0.0);
         assertEquals(Maths.Sum(1, -1), 0.0);
         assertEquals(Maths.Sum(1, 1), 2.0);
+
+
+        int x = r.nextInt(2001) - 1000;
+        int y = r.nextInt(2001) - 1000;
+        assertEquals(Maths.Sum(x, y), x+y);
+
     }
 
     @Test(groups = { "basic-operation" })
@@ -33,6 +45,8 @@ public class MathsTest {
     @Test(groups = { "basic-operation" })
     public void testMul()
     {
+        log("F");
+        
         assertEquals(Maths.Mul(0, 0), 0.0);
         assertEquals(Maths.Mul(0, 1), 0.0);
         assertEquals(Maths.Mul(1, 0), 0.0);
