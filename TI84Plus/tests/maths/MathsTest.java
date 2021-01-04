@@ -1,20 +1,56 @@
 package maths;
 
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import java.util.Random;
-
 import static org.testng.Assert.*;
-import static org.testng.Reporter.log;
 
 public class MathsTest {
 
+    private static final Random r = new Random();
 
-    private static Random r = new Random();
+    @BeforeTest
+    public void func1()
+    {
+        System.out.println("1 - Before Testing");
+    }
 
+    @AfterTest
+    public void func2()
+    {
+        System.out.println("2 - After Testing");
+    }
+
+    @BeforeMethod(onlyForGroups = {"basic-operation"})
+    public void func3()
+    {
+        System.out.println("Before basic operation");
+    }
+
+    @AfterMethod(onlyForGroups = {"basic-operation"})
+    public void func4()
+    {
+        System.out.println("After basic operation");
+    }
+
+    // Data Provider
+    @DataProvider(name = "GenerateValues")
+    public Object[] getDataFromDataprovider(){
+        return new Object[] {0, 5};
+    }
+
+    @Test(dataProvider = "GenerateValues")
+    public void testSumDataProvider(int x)
+    {
+        assertEquals(Maths.Sum(x, 10), x+10);
+    }
+
+    //  Mostrar o ALWAYSRUN COM DEPENDENCIA
+    //  Mostrar o DISABLED
+    //  Mostrar o InvocationCount
     @Test(groups = { "basic-operation" })
     public void testSum()
     {
+        //  Parcel Testing
         assertEquals(Maths.Sum(0, 0), 0.0);
         assertEquals(Maths.Sum(0, 1), 1.0);
         assertEquals(Maths.Sum(1, 0), 1.0);
@@ -23,11 +59,10 @@ public class MathsTest {
         assertEquals(Maths.Sum(1, -1), 0.0);
         assertEquals(Maths.Sum(1, 1), 2.0);
 
-
+        //  Shotgun Testing
         int x = r.nextInt(2001) - 1000;
         int y = r.nextInt(2001) - 1000;
         assertEquals(Maths.Sum(x, y), x+y);
-
     }
 
     @Test(groups = { "basic-operation" })
@@ -45,8 +80,6 @@ public class MathsTest {
     @Test(groups = { "basic-operation" })
     public void testMul()
     {
-        log("F");
-        
         assertEquals(Maths.Mul(0, 0), 0.0);
         assertEquals(Maths.Mul(0, 1), 0.0);
         assertEquals(Maths.Mul(1, 0), 0.0);
@@ -81,6 +114,7 @@ public class MathsTest {
     @Test(groups = { "logarithm" })
     public void testLn()
     {
+        //  Input Boundary
         try {
             Maths.Ln(-1);
             fail("Natural Logarithm should throw exception when v <= 0 .\nTEST CASE :\nv=-1");
@@ -561,7 +595,8 @@ public class MathsTest {
     }
 
     @Test(groups = { "combinatorial" })
-    public void testCombination() {
+    public void testCombination()
+    {
         try {
             Maths.Combination(-1, -2);
             fail("Combination should throw exception when n < 0 .\nTEST CASE :\nn=-1, r=-2");

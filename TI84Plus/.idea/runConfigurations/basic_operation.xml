@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="MathsTest.testCombination" type="TestNG" singleton="false" nameIsGenerated="true">
+  <configuration default="false" name="basic-operation" type="TestNG" singleton="false" nameIsGenerated="true">
     <module name="Faturas" />
     <useClassPathOnly />
     <extension name="coverage">
@@ -9,16 +9,14 @@
       </pattern>
     </extension>
     <option name="SUITE_NAME" value="" />
-    <option name="PACKAGE_NAME" value="maths" />
-    <option name="MAIN_CLASS_NAME" value="maths.MathsTest" />
-    <option name="METHOD_NAME" value="testCombination" />
-    <option name="GROUP_NAME" value="" />
-    <option name="TEST_OBJECT" value="METHOD" />
+    <option name="PACKAGE_NAME" value="" />
+    <option name="MAIN_CLASS_NAME" value="" />
+    <option name="METHOD_NAME" value="" />
+    <option name="GROUP_NAME" value="basic-operation" />
+    <option name="TEST_OBJECT" value="GROUP" />
+    <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
     <option name="PARAMETERS" value="" />
     <option name="OUTPUT_DIRECTORY" value="" />
-    <option name="TEST_SEARCH_SCOPE">
-      <value defaultName="moduleWithDependencies" />
-    </option>
     <option name="PROPERTIES_FILE" value="" />
     <properties />
     <listeners />

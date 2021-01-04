@@ -1,12 +1,12 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="trigonometric" type="TestNG" singleton="false">
+  <configuration default="false" name="combinatorial" type="TestNG" singleton="false">
     <module name="Faturas" />
     <useClassPathOnly />
     <option name="SUITE_NAME" value="" />
     <option name="PACKAGE_NAME" value="" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
-    <option name="GROUP_NAME" value="trigonometric" />
+    <option name="GROUP_NAME" value="combinatorial" />
     <option name="TEST_OBJECT" value="GROUP" />
     <option name="VM_PARAMETERS" value="-ea -Dtestng.dtd.http=true" />
     <option name="PARAMETERS" value="" />
